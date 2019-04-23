@@ -7,29 +7,34 @@
 #include "Object.h"
 #include "Bool.h"
 
+using namespace cpp::lang;
 
-cpp::lang::Bool cpp::lang::String::Equals(const class cpp::lang::Object &o) {
+Bool String::Equals(const class cpp::lang::Object &o) {
     return Object::Equals(o);
 }
 
-Int cpp::lang::String::GetHashCode() {
+Int String::GetHashCode() {
     return Object::GetHashCode();
 }
 
-cpp::lang::String &cpp::lang::String::ToString() {
-    return Object::ToString();
+class String &String::ToString() {
+    return *this;
 }
 
-class cpp::lang::Object &cpp::lang::String::MemberwiseClone() {
+class Object &String::MemberwiseClone() {
     return Object::MemberwiseClone();
 }
 
-cpp::lang::String::String(const native char *str) {
+String::String(const native char *str) {
     mLenght = Helpers::StringLenght(str);
     mString = new native char[mLenght];
     Helpers::StringCopy(str, mString, mLenght);
 }
 
-const char *cpp::lang::String::NativeString() {
+const char *String::NativeString() {
     return mString;
+}
+
+class String &cpp::lang::String(const native char *str) {
+    return *new class String(str);
 }

@@ -7,6 +7,8 @@
 #include "Object.h"
 
 namespace cpp::lang {
+    class String &String(const native char *str);
+
     class String : public Object {
     public:
 #pragma clang diagnostic push
@@ -16,17 +18,17 @@ namespace cpp::lang {
 
 #pragma clang diagnostic pop
 
-        ~String() override = default;
+        virtual ~String() override = default;
 
-        Bool Equals(const Object &o) override;
+        virtual Bool Equals(const Object &o) override;
 
-        Int GetHashCode() override;
+        virtual Int GetHashCode() override;
 
-        String &ToString() override;
+        virtual String &ToString() override;
 
-        Object &MemberwiseClone() override;
+        virtual Object &MemberwiseClone() override;
 
-        native const char *NativeString();
+        virtual native const char *NativeString();
 
     protected:
         native long long mLenght;

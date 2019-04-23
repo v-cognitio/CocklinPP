@@ -25,7 +25,7 @@ namespace cpp::lang {
 
         Int GetHashCode() override;
 
-        String &ToString() override;
+        class String &ToString() override;
 
     protected:
         bool mValue;

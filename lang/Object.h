@@ -9,9 +9,10 @@
 
 
 namespace cpp::lang {
-    Object &Object();
+    class Object &Object();
     class Object {
     public:
+        Object() = default;
 
         virtual ~Object() = default;
 
@@ -28,9 +29,7 @@ namespace cpp::lang {
 
 
     protected:
-        Object() = default;
 
-        friend Object &Object();
     };
 
 

@@ -8,16 +8,16 @@
 
 using namespace cpp::lang;
 
-Bool cpp::lang::Object::Equals(const Object &o) {
+Bool Object::Equals(const Object &o) {
     return Bool(this == &o);
 }
 
-Int cpp::lang::Object::GetHashCode() {
+Int Object::GetHashCode() {
     return static_cast<Int>(reinterpret_cast<Long>(this));
 }
 
-String &cpp::lang::Object::ToString() {
-    return *new String("Object"); // TODO: add to GC
+class String &Object::ToString() {
+    return *new class String("Object"); // TODO: add to GC
 }
 
 class Object &Object::MemberwiseClone() {

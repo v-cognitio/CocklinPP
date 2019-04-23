@@ -5,15 +5,16 @@
 #include "declarations.h"
 #include "Bool.h"
 #include "Object.h"
+#include "String.h"
 
 using namespace cpp::lang;
 
-String &cpp::lang::Bool::ToString() {
-    return Object::ToString();
+class String &cpp::lang::Bool::ToString() {
+    return mValue ? String("true") : String("false");
 }
 
 Int cpp::lang::Bool::GetHashCode() {
-    return Object::GetHashCode();
+    return mValue;
 }
 
 Bool cpp::lang::Bool::Equals(const Object &o) {
