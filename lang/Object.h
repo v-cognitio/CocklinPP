@@ -5,19 +5,33 @@
 #pragma once
 
 #include <lang/typesStub.h>
+#include "declarations.h"
+
 
 namespace cpp::lang {
+    Object &Object();
     class Object {
     public:
-        Object();
 
-        virtual Bool Equals(Object &o) {
-            return (this == &o);
-        }
+        virtual ~Object() = default;
 
-        virtual Int GetHashCode() {
-            return reinterpret_cast<Long>(this);
-        }
+        virtual Bool Equals(const Object &o);
 
+        virtual Int GetHashCode();
+
+        virtual String &ToString();
+
+        // virtual Type GetType()
+        virtual Object &MemberwiseClone();
+
+        static Bool ReferenceEquals(const Object &first, const Object &second);
+
+
+    protected:
+        Object() = default;
+
+        friend Object &Object();
     };
+
+
 }

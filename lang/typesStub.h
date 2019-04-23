@@ -10,6 +10,9 @@ using Long = long long;
 using ULong = unsigned long long;
 using Dounle = double;
 using Float = float;
-using Bool = bool;
-using String = char*;
-using Type = String;
+//using Bool = bool;
+//using String = char*;
+//using Type = String;
+
+#define native
+#define null nullptr;
