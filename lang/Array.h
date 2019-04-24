@@ -4,12 +4,14 @@
 
 #pragma once
 
+#include <initializer_list>
 #include "typesStub.h"
 
 template<class T>
 class Array {
 public:
-    Array(Int len, T &(*func)(Int)) {
+    template<class InitLambda>
+    Array(Int len, InitLambda func) {
         mLenght = len;
         mArray = new T *[len];
         for (int i = 0; i < len; ++i) {
@@ -31,3 +33,11 @@ protected:
     Int mLenght;
     T **mArray;
 };
+
+template<class T>
+Array<T> arrayOf(std::initializer_list<T> l){
+    return Array<T>((Int)l.size(), [&l](const Int i) -> T & {
+        T* temp = new T(*(l.begin() + i));
+        return *temp;
+    });
+}

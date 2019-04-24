@@ -28,5 +28,11 @@ int main() {
     arr.forEach([](class Object &it) {
         println(it);
     });
+
+    Array<Int> arr2 = arrayOf<Int>({1, 2, 3, 4, 5});
+
+    arr2.forEach([](Int &it) {
+        std::cout << it << " ";
+    });
     return 0;
 }
